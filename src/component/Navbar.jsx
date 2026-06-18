@@ -99,7 +99,7 @@ const Navbar = () => {
             user && <div className="relative" ref={dropdownRef}>
             <div
               onClick={() => setOpen(!open)}
-              className="flex items-center gap-2 cursor-pointer border border-gray-500 py-1 px-3 rounded-2xl hover:bg-gray-800 transition"
+              className="flex items-center gap-2 cursor-pointer border-2 border-blue-500 py-1 px-3 rounded-full hover:bg-gray-800 transition"
             >
               <Avatar size="sm">
                 <Avatar.Image 
@@ -111,7 +111,7 @@ const Navbar = () => {
                 <Avatar.Fallback>{user?.name?.charAt(0)}</Avatar.Fallback>
               </Avatar>
             <span className="hidden md:block text-white font-medium">
-              hey, {user?.name? user?.name.split(' ')[0] : "Jhon Doe"}
+              {user?.name? user?.name.split(' ')[0] : "Jhon Doe"}
             </span>
             </div>
 
