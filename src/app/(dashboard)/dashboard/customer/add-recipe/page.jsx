@@ -1,5 +1,4 @@
 "use client";
-
 import { addRecipes } from "@/lib/api/customer/recipe";
 import { authClient } from "@/lib/auth-client";
 import { uploadToImgbb } from "@/lib/Imgbb";
@@ -11,6 +10,7 @@ const AddRecipePage = () => {
 
   const { data: session } = authClient.useSession();
   const user = session?.user;
+  console.log(user)
 
   const userRecipeCount = 2;
 
@@ -36,6 +36,7 @@ const AddRecipePage = () => {
 
       recipeData.image = imageUrl;
       recipeData.userId = user?.id;
+      recipeData.userName = user?.name;
 
       const result = await addRecipes(recipeData);
 

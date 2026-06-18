@@ -14,7 +14,7 @@ const Dashboard = async () => {
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-3xl font-bold">Overview</h1>
-          <p className="text-slate-500 dark:text-slate-400">Welcome back, Abc. Here is your command center.</p>
+          <p className="text-slate-500 dark:text-slate-400">Welcome back, {user?.name}. Here is your command center.</p>
         </div>
         <form action="/api/subscription" method="POST">
             <button
