@@ -64,7 +64,7 @@ const Page = () => {
                       PREMIUM
                     </span>
                   ) : (
-                    <span className="flex items-center gap-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1 text-xs font-bold text-cyan-300">
+                    <span className="flex items-center gap-1 rounded-full border border-cyan-500/30 bg-linear-to-r from-green-500 to-blue-500 px-4 py-1 text-xs font-bold">
                       <Rocket size={14} />
                       FREE
                     </span>
