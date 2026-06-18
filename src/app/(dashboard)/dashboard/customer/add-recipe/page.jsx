@@ -3,7 +3,7 @@
 import { addRecipes } from "@/lib/api/customer/recipe";
 import { authClient } from "@/lib/auth-client";
 import { uploadToImgbb } from "@/lib/Imgbb";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const AddRecipePage = () => {
@@ -12,7 +12,6 @@ const AddRecipePage = () => {
   const { data: session } = authClient.useSession();
   const user = session?.user;
 
-  // 👉 STATIC DEMO VALUE (later replace from backend)
   const userRecipeCount = 2;
 
   const isPro = user?.plan === "pro";
@@ -74,9 +73,11 @@ const AddRecipePage = () => {
               Free users can only add <b>2 recipes</b>.
             </p>
 
-            <button className="mt-6 rounded-xl bg-gradient-to-r from-yellow-400 to-orange-500 px-6 py-3 font-semibold text-black transition hover:scale-105">
+            <form action="/api/subscription" method="POST">
+              <button type="submit" className="mt-6 cursor-pointer rounded-xl bg-linear-to-r from-yellow-400 to-orange-500 px-6 py-3 font-semibold text-black transition hover:scale-105">
               🚀 Upgrade to Premium
             </button>
+            </form>
           </div>
         ) : (
           
