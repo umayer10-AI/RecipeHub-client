@@ -35,3 +35,11 @@ export const deleteRecipeButton = async(id) => {
     const data = await res.json()
     return data
 }
+
+export const deleteSaveButton = async(id) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/recipes/save/delete/${id}`,{
+        method: "DELETE"
+    })
+    const data = await res.json()
+    return data
+}
