@@ -1,7 +1,7 @@
 "use client";
 import { addRecipes } from "@/lib/api/customer/recipe";
 import { authClient } from "@/lib/auth-client";
-import { uploadToImgbb } from "@/lib/Imgbb";
+import { uploadToCloudinary, uploadToImgbb } from "@/lib/Imgbb";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -32,10 +32,11 @@ const AddRecipePage = () => {
       const recipeData = Object.fromEntries(formData.entries());
 
       const imageFile = recipeData.image;
-      const imageUrl = await uploadToImgbb(imageFile);
+      const imageUrl = await uploadToCloudinary(imageFile);
 
       recipeData.image = imageUrl;
       recipeData.userId = user?.id;
+      recipeData.like = Number(recipeData?.like);
       recipeData.userName = user?.name;
 
       const result = await addRecipes(recipeData);
@@ -150,6 +151,15 @@ const AddRecipePage = () => {
                 <input
                   type="number"
                   name="preparationTime"
+                  className={inputClass}
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block">like</label>
+                <input
+                  type="number"
+                  name="like"
                   className={inputClass}
                 />
               </div>

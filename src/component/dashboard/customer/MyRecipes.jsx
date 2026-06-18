@@ -1,3 +1,7 @@
+import Link from "next/link";
+import EditRecipe from "./EditModal";
+import DeleteRecipe from "./DeleteRecipe";
+
 export default function MyRecipes({ recipes }) {
   return (
     <div className="overflow-x-auto rounded-xl border border-slate-700 bg-slate-900">
@@ -74,17 +78,19 @@ export default function MyRecipes({ recipes }) {
               {/* Actions */}
               <td className="px-6 py-4">
                 <div className="flex flex-wrap gap-2">
-                  <button className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600">
+                  <Link href={`/browse/${recipe?._id}`} className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600">
                     View
-                  </button>
+                  </Link>
 
-                  <button className="rounded-lg bg-yellow-500 px-3 py-2 text-sm font-semibold text-black transition hover:bg-yellow-600">
+                  {/* <button className="rounded-lg bg-yellow-500 px-3 py-2 text-sm font-semibold text-black transition hover:bg-yellow-600">
                     Edit
-                  </button>
+                  </button> */}
+                  <EditRecipe recipe={recipe}></EditRecipe>
 
-                  <button className="rounded-lg bg-red-500 px-3 py-2 text-sm text-white transition hover:bg-red-600">
+                  {/* <button className="rounded-lg bg-red-500 px-3 py-2 text-sm text-white transition hover:bg-red-600">
                     Delete
-                  </button>
+                  </button> */}
+                  <DeleteRecipe recipe={recipe}></DeleteRecipe>
                 </div>
               </td>
             </tr>

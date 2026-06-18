@@ -11,14 +11,17 @@ import {
 } from "lucide-react";
 
 const RecipeDetails = ({ recipe }) => {
+    console.log(recipe.image,"hello")
   return (
     <div className="min-h-screen bg-[#0F172A] text-white py-10">
       <div className="max-w-5xl mx-auto px-4">
         {/* Recipe Image */}
-        <div className="relative h-[400px] rounded-2xl overflow-hidden mb-8 border border-slate-700">
+        <div className="relative h-96 rounded-2xl overflow-hidden mb-8 border border-slate-700">
           <Image
-            src={recipe.image}
-            alt={recipe.recipeName}
+            src={recipe?.image || 'https://i.ibb.co/WNtmYw6n/download-2.jpg'}
+            // src={'https://images.unsplash.com/photo-1512621776951-a57141f2eefd'}
+            alt={recipe?.recipeName}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
             className="object-cover"
           />
@@ -43,7 +46,7 @@ const RecipeDetails = ({ recipe }) => {
           <div className="flex flex-wrap gap-2">
             <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-rose-500 hover:bg-rose-600 transition text-sm font-medium">
               <Heart size={16} />
-              Like
+              Like 100
             </button>
 
             <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition text-sm font-medium">

@@ -5,8 +5,8 @@ export const getdata = async (path) => {
     return res.json()
 }
 
-export const mutation = async (v,path, method='POST') => {
-    // console.log(BaseUrl,path, method)
+export const mutation = async (v, path, method='POST') => {
+    // console.log(path, method)
     const res = await fetch(`${BaseUrl}${path}`,{
         method: method,
         headers: {

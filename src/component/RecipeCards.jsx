@@ -28,9 +28,10 @@ export default function RecipeCards({recipes}) {
           {/* Image */}
           <div className="relative overflow-hidden h-50">
             <Image
-                // src={recipe?.image ? recipe?.image : 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd'}
-                src={'https://images.unsplash.com/photo-1512621776951-a57141f2eefd'}
+                src={recipe?.image ? recipe?.image : 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd'}
+                // src={'https://images.unsplash.com/photo-1512621776951-a57141f2eefd'}
                 alt={recipe?.recipeName}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 fill
                 className="object-cover transition duration-500 group-hover:scale-110"
             />
