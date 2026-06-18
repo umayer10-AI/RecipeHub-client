@@ -12,12 +12,20 @@ export const singleRecipes = async(id) => {
     return getdata(`/api/recipes/single/${id}`)
 }
 
+export const singleSavedRecipes = async(id) => {
+    return getdata(`/api/recipes/save/data/${id}`)
+}
+
 export const addRecipes = async(v) => {
     return mutation(v,`/api/recipes`,`POST`)
 }
 
 export const updateRecipe = async(v,id) => {
     return mutation(v,`/api/recipes/edit/${id}`,'PATCH')
+}
+
+export const saveRecipeData = async(v) => {
+    return mutation(v,`/api/recipes/save`,'POST')
 }
 
 export const deleteRecipeButton = async(id) => {

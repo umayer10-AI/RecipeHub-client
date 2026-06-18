@@ -1,16 +1,18 @@
 import RecipeDetails from '@/component/RecipeDetails';
-import { singleRecipes } from '@/lib/api/customer/recipe';
+import { singleRecipes, singleSavedRecipes } from '@/lib/api/customer/recipe';
 import React from 'react';
 
 const page = async ({params}) => {
 
     const {id} = await params
     const data = await singleRecipes(id)
-    console.log(data)
+    const save = await singleSavedRecipes(data?.userId)
+    const filter = save.find(v => v.saveId === id)
+    // console.log(filter)
 
     return (
         <div>
-            <RecipeDetails recipe={data}></RecipeDetails>
+            <RecipeDetails recipe={data} filter={filter}></RecipeDetails>
         </div>
     );
 };

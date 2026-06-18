@@ -1,5 +1,5 @@
 // 'use client'
-import { myRecipes } from '@/lib/api/customer/recipe';
+import { myRecipes, singleSavedRecipes } from '@/lib/api/customer/recipe';
 import { serverSession } from '@/lib/session';
 import React from 'react';
 
@@ -7,6 +7,7 @@ const Dashboard = async () => {
 
     const user = await serverSession()
     const count = await myRecipes(user?.id)
+    const saveCnt = await singleSavedRecipes(user?.id)
 
   return (
     <div className="min-h-screen p-8 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
@@ -49,7 +50,7 @@ const Dashboard = async () => {
 
         <div className="p-6 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900">
             <h3 className="text-sm text-slate-500 dark:text-slate-400 mb-2">Saved Favorites</h3>
-            <p className="text-4xl font-bold mb-4">{count.length}</p>
+            <p className="text-4xl font-bold mb-4">{saveCnt.length}</p>
             <a href="#" className="text-sm hover:underline">View details →</a>
           </div>
 

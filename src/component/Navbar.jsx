@@ -6,6 +6,7 @@ import { ChefHat } from "lucide-react";
 import { redirect, usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { authClient } from "@/lib/auth-client";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -113,6 +114,7 @@ const Navbar = () => {
             <span className="hidden md:block text-white font-medium">
               {user?.name? user?.name.split(' ')[0] : "Jhon Doe"}
             </span>
+            {open ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </div>
 
             {open && (
