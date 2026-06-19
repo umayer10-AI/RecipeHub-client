@@ -1,7 +1,11 @@
 import React from "react";
 import { Heart, Star } from "lucide-react";
+import AdminDeleteReciepe from "./AdminDeleteReciepe";
+import AdminFeature from "./AdminFeature";
 
 const ManageRecipe = ({recipes}) => {
+
+  console.log(recipes)
 
   return (
     <div className="space-y-6">
@@ -97,22 +101,11 @@ const ManageRecipe = ({recipes}) => {
                 {/* Actions */}
                 <td className="px-6 py-4">
                   <div className="flex gap-2">
-                    <button
-                      className={`rounded-lg px-3 py-2 text-sm font-medium ${
-                        recipe.featured
-                          ? "bg-purple-500/10 text-purple-400 hover:bg-purple-500/20"
-                          : "bg-yellow-500/10 text-yellow-400 hover:bg-yellow-500/20"
-                      }`}
-                    >
-                      <span className="flex items-center gap-1">
-                        <Star size={14} />
-                        {recipe.featured ? "Unfeature" : "Feature"}
-                      </span>
+                    <button>
+                      <AdminFeature recipe={recipe}></AdminFeature>                      
                     </button>
 
-                    <button className="rounded-lg bg-red-500/10 px-3 py-2 text-sm font-medium text-red-400 hover:bg-red-500/20">
-                      Delete
-                    </button>
+                    <AdminDeleteReciepe recipe={recipe}></AdminDeleteReciepe>
                   </div>
                 </td>
               </tr>

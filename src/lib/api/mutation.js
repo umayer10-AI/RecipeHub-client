@@ -6,7 +6,7 @@ export const getdata = async (path) => {
 }
 
 export const mutation = async (v, path, method='POST') => {
-    // console.log(path, method)
+    
     const res = await fetch(`${BaseUrl}${path}`,{
         method: method,
         headers: {

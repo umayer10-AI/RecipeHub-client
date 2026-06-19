@@ -1,3 +1,5 @@
+import { mutation } from "../mutation"
+
 const BaseUrl = process.env.NEXT_PUBLIC_SERVER_URL
 
 export const countUsers = async () => {
@@ -15,6 +17,13 @@ export const countPremium = async () => {
     return res.json()
 }
 
+export const adminDeleteRecipeItem = async (id) => {
+    const res = await fetch(`${BaseUrl}/api/admin/recipe/delete/${id}`,{
+        method: "DELETE"
+    })
+    return res.json()
+}
+
 export const updatePremium = async (id) => {
     const res = await fetch(
             `${process.env.NEXT_PUBLIC_SERVER_URL}/users/block/${id}`,
@@ -25,4 +34,8 @@ export const updatePremium = async (id) => {
 
         const data = await res.json();
         return data
+}
+
+export const addFeature = async (v) => {
+    return mutation(v,`/api/admin/recipe/feature`, 'POST')
 }

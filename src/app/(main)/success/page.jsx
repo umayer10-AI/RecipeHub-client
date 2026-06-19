@@ -25,11 +25,12 @@ export default async function Success({ searchParams }) {
   if(status === 'open') {
     return redirect('/')
   }
+  // console.log('')
 
   if(status === 'complete'){
 
     const result = await subscription({ ...metadata, session_id })
-    console.log(result)
+    // console.log(result)
 
     return (
       <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-emerald-50 via-white to-emerald-100 px-4">
