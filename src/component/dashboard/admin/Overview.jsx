@@ -28,7 +28,7 @@ const actions = [
   },
 ];
 
-const Overview = ({userCnt,recipeCnt}) => {
+const Overview = ({userCnt,recipeCnt,premiumCnt}) => {
   return (
     <div className="space-y-8">
       {/* Header */}
@@ -52,7 +52,7 @@ const Overview = ({userCnt,recipeCnt}) => {
     </div>
 
     <h2 className="text-4xl font-bold mt-5 text-blue-400">
-      {userCnt}
+      {userCnt.length}
     </h2>
 
     <p className="text-slate-400 mt-2">Total Users</p>
@@ -65,7 +65,7 @@ const Overview = ({userCnt,recipeCnt}) => {
     </div>
 
     <h2 className="text-4xl font-bold mt-5 text-orange-400">
-      {recipeCnt}
+      {recipeCnt.length}
     </h2>
 
     <p className="text-slate-400 mt-2">Total Recipes</p>
@@ -78,7 +78,7 @@ const Overview = ({userCnt,recipeCnt}) => {
     </div>
 
     <h2 className="text-4xl font-bold mt-5 text-purple-400">
-      7
+      {premiumCnt.length}
     </h2>
 
     <p className="text-slate-400 mt-2">Premium Members</p>

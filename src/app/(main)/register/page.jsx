@@ -23,6 +23,7 @@ const RegisterPage = () => {
         image: registerData.image,
         role: registerData.role,
         plan: 'free',
+        isBlock: false,
         callbackURL: "/",
     });
 

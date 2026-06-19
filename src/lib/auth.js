@@ -20,6 +20,9 @@ export const auth = betterAuth({
             plan: {
                 defaultValue: "free",
             },
+            isBlock: {
+                defaultValue: false,
+            },
         },
     },
     socialProviders: {
