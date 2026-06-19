@@ -4,6 +4,10 @@ export const myRecipes = async(id) => {
     return getdata(`/api/recipes/${id}`)
 }
 
+export const myRecipesCount = async(id) => {
+    return getdata(`/api/recipes/like/${id}`)
+}
+
 export const allRecipes = async() => {
     return getdata(`/api/recipes`)
 }
@@ -14,6 +18,10 @@ export const singleRecipes = async(id) => {
 
 export const singleSavedRecipes = async(id) => {
     return getdata(`/api/recipes/save/data/${id}`)
+}
+
+export const singleCountRecipes = async(v,id) => {
+    return mutation(v,`/api/recipes/like/count/${id}`,'PATCH')
 }
 
 export const reportRecipe = async(v) => {

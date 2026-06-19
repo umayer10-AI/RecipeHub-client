@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import SaveRecipe from "./SaveRecipe";
 import ReportModal from "./ReportModal";
+import LikeGrow from "./LikeGrow";
 
 const RecipeDetails = ({ recipe,isSaved }) => {
 
@@ -48,10 +49,12 @@ const RecipeDetails = ({ recipe,isSaved }) => {
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-2">
-            <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-rose-500 hover:bg-rose-600 transition text-sm font-medium">
+            {/* <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-rose-500 hover:bg-rose-600 transition text-sm font-medium">
               <Heart size={16} />
-              Like 100
-            </button>
+              Like ({recipe.like})
+            </button> */}
+
+            <LikeGrow recipe={recipe}></LikeGrow>
 
             {/* <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition text-sm font-medium">
               <Bookmark size={16} />
