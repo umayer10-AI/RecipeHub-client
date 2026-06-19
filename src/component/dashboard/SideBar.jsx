@@ -12,6 +12,10 @@ import {
   ArrowLeft,
   LogOut,
   Crown,
+  Users,
+  UtensilsCrossed,
+  AlertTriangle,
+  CreditCard,
 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
@@ -59,37 +63,32 @@ const Sidebar = () => {
   }
   if(user?.role === 'admin'){
     menuItems = [
-    {
-      name: "Overview",
-      href: "/dashboard/admin",
-      icon: LayoutDashboard,
-    },
-    {
-      name: "Add Recipe",
-      href: "/dashboard/admin/add-recipe",
-      icon: PlusCircle,
-    },
-    {
-      name: "My Recipes",
-      href: "/dashboard/admin/my-recipes",
-      icon: BookOpen,
-    },
-    {
-      name: "Favourite",
-      href: "/dashboard/admin/favourite",
-      icon: Heart,
-    },
-    {
-      name: "Purchased",
-      href: "/dashboard/admin/purchased",
-      icon: ShoppingBag,
-    },
-    {
-      name: "Profile",
-      href: "/dashboard/admin/profile",
-      icon: User,
-    },
-  ];
+  {
+    name: "Overview",
+    href: "/dashboard/admin",
+    icon: LayoutDashboard,
+  },
+  {
+    name: "Manage Users",
+    href: "/dashboard/admin/manage-user",
+    icon: Users,
+  },
+  {
+    name: "Manage Recipes",
+    href: "/dashboard/admin/manage-recipe",
+    icon: UtensilsCrossed,
+  },
+  {
+    name: "Reports",
+    href: "/dashboard/admin/reports",
+    icon: AlertTriangle,
+  },
+  {
+    name: "Transactions",
+    href: "/dashboard/admin/transaction",
+    icon: CreditCard,
+  },
+];
   }
 
   const handleSignout = async () => {
@@ -103,7 +102,9 @@ const Sidebar = () => {
       {/* User Info */}
       <div className="border-b border-white/10 p-6">
         <div className="flex flex-col items-center">
-          <Image
+          {
+            user?.role === 'customer' ?
+            <Image
             width={100}
             height={100}
             alt="logo"
@@ -113,7 +114,9 @@ const Sidebar = () => {
               "https://images.unsplash.com/photo-1781124771441-a66d8864724b"
             }
             className="h-20 w-20 rounded-full object-cover border-2 border-slate-700"
-          />
+          /> : 
+          <h2 className="text-2xl font-bold bg-linear-to-r from-cyan-400 to-blue-500 w-fit bg-clip-text text-transparent">Admin Panel</h2>
+          }
 
           {/* Name + Badge */}
           <div className="mt-3 flex items-center gap-2">
@@ -121,7 +124,9 @@ const Sidebar = () => {
               {user?.name || "John Doe"}
             </h2>
 
-            {user?.plan === "pro" ? (
+            {
+              user?.role==='customer' && <div>
+                {user?.plan === "pro" ? (
               <span className="flex items-center gap-1 rounded-full border border-amber-500/30 bg-amber-500/20 px-2 py-0.5 text-xs font-medium text-amber-400">
                 <Crown size={10} />
                 Premium
@@ -131,6 +136,8 @@ const Sidebar = () => {
                 Free
               </span>
             )}
+              </div>
+            }
           </div>
 
           <p className="text-sm text-gray-400">
