@@ -1,5 +1,5 @@
 "use client";
-import { addRecipes } from "@/lib/api/customer/recipe";
+import { addRecipes, myRecipes } from "@/lib/api/customer/recipe";
 import { authClient } from "@/lib/auth-client";
 import { uploadToCloudinary, uploadToImgbb } from "@/lib/Imgbb";
 import { useEffect, useState } from "react";
@@ -7,12 +7,35 @@ import toast from "react-hot-toast";
 
 const AddRecipePage = () => {
   const [loading, setLoading] = useState(false);
+  const [recipes, setRecipes] = useState([]);
+  const [loadingData, setLoadingData] = useState(true);
 
   const { data: session } = authClient.useSession();
   const user = session?.user;
-  console.log(user)
+  // console.log(user)
 
-  const userRecipeCount = 2;
+  useEffect(() => {
+  const fetchData = async () => {
+    if (!user?.id) return;
+
+    try {
+      setLoadingData(true);
+
+      const data = await myRecipes(user.id);
+
+      setRecipes(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoadingData(false);
+    }
+  };
+
+  fetchData();
+}, [user?.id]);
+
+  const userRecipeCount = recipes.length;
+  // console.log(recipes.length)
 
   const isPro = user?.plan === "pro";
   const isBlocked = !isPro && userRecipeCount >= 2;

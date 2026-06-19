@@ -16,6 +16,10 @@ export const singleSavedRecipes = async(id) => {
     return getdata(`/api/recipes/save/data/${id}`)
 }
 
+export const reportRecipe = async(v) => {
+  return mutation(v, '/api/recipes/report', 'POST')
+}
+
 export const addRecipes = async(v) => {
     return mutation(v,`/api/recipes`,`POST`)
 }
@@ -43,3 +47,10 @@ export const deleteSaveButton = async(id) => {
     const data = await res.json()
     return data
 }
+
+export const getReportStatus = async (recipeId, userId) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/recipes/report/status/${recipeId}/${userId}`
+  );
+  return res.json();
+};

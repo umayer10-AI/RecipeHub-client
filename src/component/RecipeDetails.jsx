@@ -10,8 +10,9 @@ import {
   ChefHat,
 } from "lucide-react";
 import SaveRecipe from "./SaveRecipe";
+import ReportModal from "./ReportModal";
 
-const RecipeDetails = ({ recipe,filter }) => {
+const RecipeDetails = ({ recipe,isSaved }) => {
 
     // console.log(recipe)
 
@@ -57,17 +58,14 @@ const RecipeDetails = ({ recipe,filter }) => {
               Save
             </button> */}
 
-            <SaveRecipe recipe={recipe} filter={filter}></SaveRecipe>
+            <SaveRecipe recipe={recipe} isSaved={isSaved}></SaveRecipe>
 
             <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 transition text-sm font-medium">
               <ShoppingCart size={16} />
               Purchase
             </button>
 
-            <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-red-500 hover:bg-red-600 transition text-sm font-medium">
-              <Flag size={16} />
-              Report
-            </button>
+            <ReportModal recipe={recipe}></ReportModal>
           </div>
         </div>
 
