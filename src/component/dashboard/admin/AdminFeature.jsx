@@ -1,13 +1,13 @@
 'use client';
-
 import { addFeature } from '@/lib/api/admin/users';
 import { Star } from 'lucide-react';
+import { redirect } from 'next/navigation';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
 const AdminFeature = ({ recipe, featured }) => {
   const [isFeatured, setIsFeatured] = useState(featured);
-  console.log(recipe)
+//   console.log(recipe)
 
   const handleFeature = async () => {
     const data = await addFeature(recipe);
@@ -21,6 +21,7 @@ const AdminFeature = ({ recipe, featured }) => {
       setIsFeatured(false);
       toast.success('Feature Removed');
     }
+    redirect('/dashboard/admin/manage-recipe')
   };
 
   return (

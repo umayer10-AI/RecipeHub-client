@@ -59,7 +59,7 @@ const AddRecipePage = () => {
 
       recipeData.image = imageUrl;
       recipeData.userId = user?.id;
-      recipeData.like = Number(recipeData?.like);
+      recipeData.like = Number(0);
       recipeData.userName = user?.name;
 
       const result = await addRecipes(recipeData);
@@ -178,14 +178,6 @@ const AddRecipePage = () => {
                 />
               </div>
 
-              <div>
-                <label className="mb-2 block">like</label>
-                <input
-                  type="number"
-                  name="like"
-                  className={inputClass}
-                />
-              </div>
 
               {/* Ingredients */}
               <div className="md:col-span-2">

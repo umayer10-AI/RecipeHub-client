@@ -45,6 +45,11 @@ export const addFeature = async (v) => {
     return mutation(v,`/api/admin/recipe/feature`, 'POST')
 }
 
+export const getFeature = async () => {
+    const res = await fetch(`${BaseUrl}/api/admin/recipe/feature`)
+    return res.json()
+}
+
 export const deleteReportButton = async(id) => {
     console.log(id)
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/recipes/report/list/delete/${id}`,{

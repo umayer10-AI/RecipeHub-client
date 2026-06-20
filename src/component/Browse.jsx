@@ -5,7 +5,7 @@ import RecipeCards from './RecipeCards';
 const Browse = async () => {
 
     const data = await allRecipes()
-    console.log(data)
+    // console.log(data)
 
     return (
         <div className='max-w-[80%] mx-auto'>
