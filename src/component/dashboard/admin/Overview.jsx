@@ -28,7 +28,7 @@ const actions = [
   },
 ];
 
-const Overview = ({userCnt,recipeCnt,premiumCnt}) => {
+const Overview = ({userCnt,recipeCnt,premiumCnt,list}) => {
   return (
     <div className="space-y-8">
       {/* Header */}
@@ -91,7 +91,7 @@ const Overview = ({userCnt,recipeCnt,premiumCnt}) => {
     </div>
 
     <h2 className="text-4xl font-bold mt-5 text-red-400">
-      6
+      {list.length}
     </h2>
 
     <p className="text-slate-400 mt-2">Pending Reports</p>

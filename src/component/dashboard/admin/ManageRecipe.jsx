@@ -5,7 +5,7 @@ import AdminFeature from "./AdminFeature";
 
 const ManageRecipe = ({recipes}) => {
 
-  console.log(recipes)
+  // console.log(recipes)
 
   return (
     <div className="space-y-6">
@@ -101,9 +101,7 @@ const ManageRecipe = ({recipes}) => {
                 {/* Actions */}
                 <td className="px-6 py-4">
                   <div className="flex gap-2">
-                    <button>
-                      <AdminFeature recipe={recipe}></AdminFeature>                      
-                    </button>
+                      <AdminFeature recipe={recipe} featured={recipe.featured}></AdminFeature>                      
 
                     <AdminDeleteReciepe recipe={recipe}></AdminDeleteReciepe>
                   </div>
