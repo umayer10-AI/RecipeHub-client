@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Avatar } from "@heroui/react";
-import { ChefHat } from "lucide-react";
+import { ChefHat, LayoutDashboard, LogOut, User } from "lucide-react";
 import { redirect, usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { authClient } from "@/lib/auth-client";
@@ -73,14 +73,14 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/pricing"
+            href="/about"
             className={`rounded-xl px-4 py-1 ${
-              pathname === "/pricing"
+              pathname === "/about"
                 ? "bg-gradient-to-r from-cyan-500 to-blue-700 text-white"
                 : "text-gray-300 hover:text-sky-400"
             }`}
           >
-            Pricing
+            About
           </Link>
         </div>
 
@@ -119,21 +119,30 @@ const Navbar = () => {
 
             {open && (
               <div className="absolute right-0 mt-2 w-48 rounded-xl border border-gray-700 bg-[#111827] shadow-xl overflow-hidden">
-                <Link
-                  href={`/dashboard/${user?.role}`}
-                  className="block px-4 py-3 text-white hover:bg-gray-800"
-                  // onClick={() => setOpen(false)}
-                >
-                  Dashboard
-                </Link>
+  <Link
+    href={`/dashboard/${user?.role}`}
+    className="flex items-center gap-2 px-4 py-3 text-white hover:bg-gray-800"
+  >
+    <LayoutDashboard size={18} />
+    Dashboard
+  </Link>
 
-                <button
-                  className="w-full text-left px-4 py-3 text-red-400 hover:bg-gray-800"
-                  onClick={handleSignout}
-                >
-                  Sign Out
-                </button>
-              </div>
+  <Link
+    href={`/dashboard/customer/profile`}
+    className="flex items-center gap-2 px-4 py-3 text-white hover:bg-gray-800"
+  >
+    <User size={18} />
+    Profile
+  </Link>
+
+  <button
+    className="w-full flex items-center gap-2 text-left px-4 py-3 text-red-400 hover:bg-gray-800"
+    onClick={handleSignout}
+  >
+    <LogOut size={18} />
+    Sign Out
+  </button>
+</div>
             )}
           </div>
           }
