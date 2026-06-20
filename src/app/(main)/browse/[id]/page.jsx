@@ -11,8 +11,6 @@ const page = async ({params}) => {
     const data = await singleRecipes(id)
     const save = await singleSavedRecipes(user?.id)
     const isSaved = save.find(item => item.saveId === data._id)
-    // const filter1 = save.find(v => v.saveId === data?._id)
-    // const filter2 = save.find(v => v.userId === data?.userId)
     console.log(data)
 
     return (

@@ -140,9 +140,12 @@ const Sidebar = () => {
             }
           </div>
 
-          <p className="text-sm text-gray-400">
-            {user?.email || "john@example.com"}
-          </p>
+          {
+            user?.role==='customer' && <p className="text-sm text-gray-400">
+              {user?.email || "john@example.com"}
+            </p>
+          }
+
         </div>
       </div>
 

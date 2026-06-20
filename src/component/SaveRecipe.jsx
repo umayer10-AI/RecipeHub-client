@@ -62,14 +62,14 @@ const SaveRecipe = ({recipe,isSaved}) => {
         <div>
             {
   isSaved ? (
-    <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-blue-500">
+    <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500">
       <FaBookmark size={16} />
       Saved
     </button>
   ) : (
     <button
       onClick={handleData}
-      className="flex items-center gap-1.5 cursor-pointer px-3 py-2 rounded-lg bg-blue-500"
+      className="flex items-center gap-1.5 cursor-pointer px-3 py-1.5 rounded-lg bg-blue-500"
     >
       <Bookmark size={16} />
       Save

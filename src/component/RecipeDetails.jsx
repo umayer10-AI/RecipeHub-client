@@ -63,10 +63,17 @@ const RecipeDetails = ({ recipe,isSaved }) => {
 
             <SaveRecipe recipe={recipe} isSaved={isSaved}></SaveRecipe>
 
-            <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 transition text-sm font-medium">
-              <ShoppingCart size={16} />
-              Purchase
-            </button>
+            <form action={'/api/payment'} method="POST">
+              <input type="hidden" name="userId" value={recipe?.userId} />
+              <input type="hidden" name="recipeId" value={recipe?._id} />
+              <input type="hidden" name="price" value={4.99} />
+              <input type="hidden" name="recipeName" value={recipe.recipeName} />
+
+              <button type="submit" className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 transition text-sm font-medium">
+                <ShoppingCart size={16} />
+                Purchase
+              </button>
+            </form>
 
             <ReportModal recipe={recipe}></ReportModal>
           </div>

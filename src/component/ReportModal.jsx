@@ -68,7 +68,7 @@ const ReportModal = ({ recipe }) => {
       {/* Button */}
       <button
         onClick={() => !reported && setIsOpen(true)}
-        className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-white transition ${
+        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-white transition ${
           reported
             ? "bg-slate-600 cursor-not-allowed"
             : "bg-red-500 hover:bg-red-600"
