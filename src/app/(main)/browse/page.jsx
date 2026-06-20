@@ -6,10 +6,11 @@ const page = async ({searchParams}) => {
     const query = await searchParams
     const search = query.search || '';
     const category = query.category || '';
+    const currentPage = Number(query.page) || 1;
 
     return (
         <div>
-            <Browse search={search} category={category}></Browse>
+            <Browse search={search} category={category} page={currentPage}></Browse>
         </div>
     );
 };

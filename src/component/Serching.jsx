@@ -9,12 +9,15 @@ const Searching = ({s, c}) => {
   const [category, setCategory] = useState(c);
   const router = useRouter();
 
-  // shared function (IMPORTANT)
   const updateRoute = (newQuery = query, newCategory = category) => {
     const params = new URLSearchParams();
 
-    if (newQuery) params.append("search", newQuery);
-    if (newCategory) params.append("category", newCategory);
+    if(newQuery){
+      params.set("search", newQuery);
+    }
+    if(newCategory){
+      params.set("category", newCategory);
+    }
 
     router.push(`/browse?${params.toString()}`);
   };
