@@ -2,21 +2,6 @@ import Link from "next/link";
 import { Clock, ChefHat } from "lucide-react";
 import Image from "next/image";
 
-// const recipes = [
-//   {
-//     recipeName: "Tobias Head",
-//     image: "https://i.ibb.co/p62vF79p/download-3.jpg",
-//     category: "Breakfast",
-//     cuisineType: "Chinese",
-//     difficultyLevel: "Easy",
-//     preparationTime: "40",
-//     ingredients: "Mollitia id omnis im",
-//     instructions: "Consequat Sint iste",
-//     userId: "6a32b24e9189754466e9d54f",
-//     userName: "Umayer",
-//   },
-// ];
-
 export default function RecipeCards({recipes}) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">

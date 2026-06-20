@@ -127,7 +127,7 @@ const Sidebar = () => {
             {
               user?.role==='customer' && <div>
                 {user?.plan === "pro" ? (
-              <span className="flex items-center gap-1 rounded-full border border-amber-500/30 bg-amber-500/20 px-2 py-0.5 text-xs font-medium text-amber-400">
+              <span className="flex items-center gap-1 rounded-full border border-cyan-500/50 bg-cyan-500/20 px-2 py-0.5 text-xs font-medium text-cyan-500">
                 <Crown size={10} />
                 Premium
               </span>

@@ -8,8 +8,19 @@ export const myRecipesCount = async(id) => {
     return getdata(`/api/recipes/like/${id}`)
 }
 
-export const allRecipes = async() => {
-    return getdata(`/api/recipes`)
+export const allRecipes = async(search,category) => {
+    if(search && category){
+        return getdata(`/api/recipes?search=${search}&category=${category}`)
+    }
+    else if(category){
+        return getdata(`/api/recipes?category=${category}`)
+    }
+    else if(search){
+        return getdata(`/api/recipes?search=${search}`)
+    }
+    else{
+        return getdata(`/api/recipes`)
+    }
 }
 
 export const singleRecipes = async(id) => {

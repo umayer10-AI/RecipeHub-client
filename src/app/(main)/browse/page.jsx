@@ -1,10 +1,15 @@
 import Browse from '@/component/Browse';
 import React from 'react';
 
-const page = () => {
+const page = async ({searchParams}) => {
+
+    const query = await searchParams
+    const search = query.search || '';
+    const category = query.category || '';
+
     return (
         <div>
-            <Browse></Browse>
+            <Browse search={search} category={category}></Browse>
         </div>
     );
 };
