@@ -2,8 +2,12 @@ import { mutation } from "../mutation"
 
 const BaseUrl = process.env.NEXT_PUBLIC_SERVER_URL
 
-export const countUsers = async () => {
-    const res = await fetch(`${BaseUrl}/api/admin/users`)
+export const countUsers = async (token) => {
+    const res = await fetch(`${BaseUrl}/api/admin/users`,{
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    })
     return res.json()
 }
 
@@ -22,18 +26,24 @@ export const reportsListings = async () => {
     return res.json()
 }
 
-export const adminDeleteRecipeItem = async (id) => {
+export const adminDeleteRecipeItem = async (id,token) => {
     const res = await fetch(`${BaseUrl}/api/admin/recipe/delete/${id}`,{
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+            authorization: `Bearer ${token?.token}`
+        }
     })
     return res.json()
 }
 
-export const updatePremium = async (id) => {
+export const updatePremium = async (id,token) => {
     const res = await fetch(
             `${process.env.NEXT_PUBLIC_SERVER_URL}/users/block/${id}`,
             {
                 method: "PATCH",
+                headers: {
+                    "Authorization": `Bearer ${token?.token}`
+                }
             }
             );
 
@@ -41,8 +51,8 @@ export const updatePremium = async (id) => {
         return data
 }
 
-export const addFeature = async (v) => {
-    return mutation(v,`/api/admin/recipe/feature`, 'POST')
+export const addFeature = async (v,token) => {
+    return mutation(v,`/api/admin/recipe/feature`, 'POST', token)
 }
 
 export const getFeature = async () => {

@@ -1,14 +1,18 @@
 "use client"
 import { adminDeleteRecipeItem } from '@/lib/api/admin/users';
+import { authClient } from '@/lib/auth-client';
 import { redirect } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
 
 const AdminDeleteReciepe = ({recipe}) => {
-    // console.log(recipe)
 
     const a = async() => {
-        const info = await adminDeleteRecipeItem(recipe._id)
+
+        const token = await authClient.token()
+        const t = token?.data
+
+        const info = await adminDeleteRecipeItem(recipe._id, t)
         // console.log(info)
         if(info.deletedCount > 0){
             toast.error("Recipe Deleted")

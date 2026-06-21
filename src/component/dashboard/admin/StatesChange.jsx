@@ -1,5 +1,6 @@
 "use client"
 import { updatePremium } from '@/lib/api/admin/users';
+import { authClient } from '@/lib/auth-client';
 import { redirect } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
@@ -9,11 +10,12 @@ const StatesChange = ({user}) => {
     // console.log(user)
 
     const handleBlockToggle = async (id) => {
-            const data = await updatePremium(id)
+        const token = await authClient.token()
+        const t = token?.data
+            const data = await updatePremium(id,t)
 
             if(data.modifiedCount > 0) {
                 toast.success('State Change')
-                // refetch()
                 redirect('/dashboard/admin/manage-user')
             }
         };

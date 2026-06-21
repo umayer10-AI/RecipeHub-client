@@ -1,5 +1,6 @@
 'use client';
 import { addFeature } from '@/lib/api/admin/users';
+import { authClient } from '@/lib/auth-client';
 import { Star } from 'lucide-react';
 import { redirect } from 'next/navigation';
 import { useState } from 'react';
@@ -10,7 +11,11 @@ const AdminFeature = ({ recipe, featured }) => {
 //   console.log(recipe)
 
   const handleFeature = async () => {
-    const data = await addFeature(recipe);
+
+    const token = await authClient.token()
+    const t = token?.data
+
+    const data = await addFeature(recipe,t);
 
     if (data.action === 'added') {
       setIsFeatured(true);

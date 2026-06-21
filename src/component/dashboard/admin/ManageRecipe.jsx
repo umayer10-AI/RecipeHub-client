@@ -26,7 +26,6 @@ const ManageRecipe = ({recipes}) => {
               <th className="px-6 py-4">Recipe</th>
               <th className="px-6 py-4">Author</th>
               <th className="px-6 py-4">Category</th>
-              {/* <th className="px-6 py-4">Cuisine</th> */}
               <th className="px-6 py-4">Likes</th>
               <th className="px-6 py-4">Featured</th>
               <th className="px-6 py-4">Actions</th>
@@ -71,11 +70,6 @@ const ManageRecipe = ({recipes}) => {
                     {recipe.category}
                   </span>
                 </td>
-
-                {/* Cuisine */}
-                {/* <td className="px-6 py-4 text-slate-300">
-                  {recipe.cuisineType}
-                </td> */}
 
                 {/* Likes */}
                 <td className="px-6 py-4">
