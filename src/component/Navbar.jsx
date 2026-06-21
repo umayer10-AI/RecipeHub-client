@@ -121,7 +121,7 @@ const Navbar = () => {
             <div className="relative" ref={dropdownRef}>
               <div
                 onClick={() => setOpen(!open)}
-                className="flex items-center gap-2 cursor-pointer border-2 border-blue-500 py-1 px-3 rounded-full hover:bg-gray-800 transition"
+                className="flex items-center gap-2 cursor-pointer border-2 border-blue-500 py-1 px-3 rounded-full hover:bg-gray-800 transition text-white"
               >
                 <Avatar size="sm">
                   <Avatar.Image

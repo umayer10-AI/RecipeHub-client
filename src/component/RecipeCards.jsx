@@ -8,7 +8,7 @@ export default function RecipeCards({recipes}) {
       {recipes.map((recipe, index) => (
         <div
           key={index}
-          className="group overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-lg hover:border-orange-500/50 hover:shadow-orange-500/10 transition-all duration-300"
+          className="group overflow-hidden rounded-2xl border border-slate-800 dark:bg-slate-900 shadow-lg hover:border-cyan-500/50 hover:shadow-orange-500/10 transition-all duration-300"
         >
           {/* Image */}
           <div className="relative overflow-hidden h-50">
@@ -29,7 +29,7 @@ export default function RecipeCards({recipes}) {
           {/* Content */}
           <div className="p-5">
             <div className="flex items-center justify-between mb-2">
-              <h2 className="text-xl font-bold text-white">
+              <h2 className="text-xl font-bold text-black dark:text-white">
                 {recipe.recipeName}
               </h2>
 
@@ -38,14 +38,14 @@ export default function RecipeCards({recipes}) {
               </span>
             </div>
 
-            <p className="text-slate-400 text-sm mb-2">
+            <p className="text-gray-600 dark:text-slate-400 text-sm mb-2">
               Created by{" "}
-              <span className="text-orange-400 font-medium">
+              <span className="text-cyan-500 font-medium">
                 {recipe.userName}
               </span>
             </p>
 
-            <div className="flex items-center justify-between text-sm text-slate-300 mb-2">
+            <div className="flex items-center justify-between text-sm dark:text-slate-300 mb-2">
               <div className="flex items-center gap-2">
                 <ChefHat size={16} />
                 <span>{recipe.difficultyLevel}</span>
@@ -57,7 +57,7 @@ export default function RecipeCards({recipes}) {
               </div>
             </div>
 
-            <p className="text-slate-400 text-sm line-clamp-2 mb-5">
+            <p className="text-gray-600 dark:text-slate-400 text-sm line-clamp-2 mb-5">
               {recipe.ingredients}
             </p>
 

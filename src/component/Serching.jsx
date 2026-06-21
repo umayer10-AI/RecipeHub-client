@@ -28,25 +28,25 @@ const Searching = ({s, c}) => {
   };
 
   return (
-    <div className="bg-[#0B1120] text-white pb-10">
+    <div className="dark:bg-[#0B1120] text-white pb-10">
       <div className="max-w-[80%] mx-auto px-4">
 
         <div className="flex flex-col md:flex-row gap-4 items-center">
 
           {/* Search Input */}
-          <div className="flex w-full md:flex-1 items-center bg-slate-900 border border-slate-700 rounded-xl overflow-hidden">
+          <div className="flex w-full md:flex-1 items-center dark:bg-slate-900 border border-slate-700 rounded-xl overflow-hidden">
 
             <input
               type="text"
               placeholder="Search recipes..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full bg-transparent px-4 py-2 outline-none text-white"
+              className="w-full bg-transparent px-4 py-2 outline-none text-black dark:text-white"
             />
 
             <button
               onClick={handleSearch}
-              className="bg-gradient-to-r from-cyan-500 to-blue-700 px-4 py-2 hover:opacity-90 transition flex items-center gap-2"
+              className="bg-linear-to-r from-cyan-500 to-blue-700 px-4 py-2 hover:opacity-90 transition flex items-center gap-2"
             >
               <Search size={18} />
               Search
@@ -62,7 +62,7 @@ const Searching = ({s, c}) => {
               setCategory(value);
               updateRoute(query, value);
             }}
-            className="w-full md:w-60 bg-slate-900 border border-slate-700 px-4 py-2 rounded-xl text-white outline-none"
+            className="w-full md:w-60 dark:bg-slate-900 border border-slate-700 px-4 py-2 rounded-xl  outline-none text-black dark:text-white"
           >
             <option value="">All Categories</option>
             <option value="Breakfast">Breakfast</option>

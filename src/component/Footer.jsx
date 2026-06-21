@@ -9,7 +9,7 @@ import { ChefHat } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="border-t mt-20 border-white/10 bg-[#0B1120] text-gray-300">
+    <footer className="border-t border-white/10 bg-[#0B1120] text-gray-300">
       <div className="mx-auto max-w-[80%] px-4 py-12">
         <div className="grid gap-10 md:grid-cols-4">
           
