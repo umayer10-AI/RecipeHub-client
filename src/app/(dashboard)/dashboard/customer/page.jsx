@@ -1,15 +1,32 @@
-// 'use client'
 import { myRecipes, myRecipesCount, singleSavedRecipes } from '@/lib/api/customer/recipe';
 import { serverSession } from '@/lib/session';
+import { getServerToken } from '@/lib/token';
+import Link from 'next/link';
 import React from 'react';
+
+const actions = [
+  {
+    name: "Browse gallery",
+    href: "/browse",
+  },
+  {
+    name: "View saved items",
+    href: "/dashboard/customer/favourite",
+  },
+  {
+    name: "Account settings",
+    href: "/dashboard/customer",
+  },
+];
 
 const Dashboard = async () => {
 
+    const token = await getServerToken()
     const user = await serverSession()
     const count = await myRecipes(user?.id)
-    const saveCnt = await singleSavedRecipes(user?.id)
+    const saveCnt = await singleSavedRecipes(user?.id,token)
     const likeCnt = await myRecipesCount(user?.id)
-    console.log(likeCnt)
+    // console.log(saveCnt)
 
   return (
     <div className="min-h-screen p-8 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
@@ -29,36 +46,23 @@ const Dashboard = async () => {
         </form>
       </div>
 
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        {[
-          { title: "Published Recipes", count: 1 },
-          { title: "Saved Favorites", count: 2 },
-          { title: "Total Engagement", count: 0 },
-        ].map((card, idx) => (
-          <div key={idx} className="p-6 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900">
-            <h3 className="text-sm text-slate-500 dark:text-slate-400 mb-2">{card.title}</h3>
-            <p className="text-4xl font-bold mb-4">{card.count}</p>
-            <a href="#" className="text-sm hover:underline">View details →</a>
-          </div>
-        ))}
-      </div> */}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="p-6 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900">
             <h3 className="text-sm text-slate-500 dark:text-slate-400 mb-2">Published Recipes</h3>
-            <p className="text-4xl font-bold mb-4">{count.length}</p>
+            <p className="text-4xl font-bold mb-4">{count.length || 0}</p>
             <a href="#" className="text-sm hover:underline">View details →</a>
         </div>
 
         <div className="p-6 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900">
             <h3 className="text-sm text-slate-500 dark:text-slate-400 mb-2">Saved Favorites</h3>
-            <p className="text-4xl font-bold mb-4">{saveCnt.length}</p>
+            <p className="text-4xl font-bold mb-4">{saveCnt.length || 0}</p>
             <a href="#" className="text-sm hover:underline">View details →</a>
           </div>
 
         <div className="p-6 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900">
             <h3 className="text-sm text-slate-500 dark:text-slate-400 mb-2">Total Engagement</h3>
-            <p className="text-4xl font-bold mb-4">{likeCnt}</p>
+            <p className="text-4xl font-bold mb-4">{likeCnt || 0}</p>
             <a href="#" className="text-sm hover:underline">View details →</a>
           </div>
       </div>
@@ -92,11 +96,11 @@ const Dashboard = async () => {
       <div className="p-6 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900">
         <h2 className="font-bold mb-4">Quick Actions</h2>
         <div className="flex gap-4">
-          <button className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2 rounded-lg">Create new recipe</button>
-          {['Browse gallery', 'View saved items', 'Account settings'].map(btn => (
-            <button key={btn} className="px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
-              {btn}
-            </button>
+          <Link href={'/dashboard/customer/add-recipe'} className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2 rounded-lg">Create new recipe</Link>
+          {actions.map(btn => (
+            <Link href={btn.href} key={btn.name} className="px-4 py-2 border cursor-pointer border-slate-300 dark:border-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+              {btn.name}
+            </Link>
           ))}
         </div>
       </div>
