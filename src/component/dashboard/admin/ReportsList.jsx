@@ -71,14 +71,8 @@ const ReportsList = ({reports}) => {
 
                   <td className="px-6 py-4">
                     <div className="flex gap-2">
-                      {/* <button className="px-4 py-2 rounded-lg bg-red-500/20 text-red-600 cursor-pointer hover:bg-black hover:text-white transition">
-                        Remove Recipe
-                      </button> */}
                       <ReportRecipeDelete report={report}></ReportRecipeDelete>
 
-                      {/* <button className="px-4 py-2 rounded-lg border bg-white text-black font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition">
-                        Dismiss
-                      </button> */}
                       <ReportDelete report={report}></ReportDelete>
                     </div>
                   </td>

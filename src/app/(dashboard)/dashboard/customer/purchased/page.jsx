@@ -5,6 +5,7 @@ import React from "react";
 const Page = async () => {
   const user = await serverSession();
   const data = await getUserPayment(user?.email);
+  // console.log(data);
 
   return (
     <div className="max-w-[90%] mx-auto py-10">

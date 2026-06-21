@@ -5,7 +5,6 @@ import { reportsListings } from '@/lib/api/admin/users';
 const page = async () => {
 
     const list = await reportsListings()
-    // console.log(list)
 
     return (
         <div className='max-w-[90%] mx-auto mt-10'>

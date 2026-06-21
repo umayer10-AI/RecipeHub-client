@@ -1,15 +1,19 @@
 'use client'
 import { deleteReportButton, deleteReportRecipeButton } from '@/lib/api/admin/users';
+import { authClient } from '@/lib/auth-client';
 import { redirect } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
 
 const ReportRecipeDelete = ({report}) => {
 
-    // console.log(report)
     const a = async() => {
-        await deleteReportButton(report._id)
-        const data = await deleteReportRecipeButton(report.recipeId)
+
+        const token = await authClient.token()
+        const t = token?.data
+
+        await deleteReportButton(report._id,t)
+        const data = await deleteReportRecipeButton(report.recipeId,t)
         if(data.deletedCount > 0){
             toast.success('Dismiss')
             redirect('/dashboard/admin/reports')

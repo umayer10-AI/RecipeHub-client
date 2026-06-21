@@ -11,8 +11,12 @@ export const countUsers = async (token) => {
     return res.json()
 }
 
-export const countRecepies = async () => {
-    const res = await fetch(`${BaseUrl}/api/admin/recipes`)
+export const countRecepies = async (token) => {
+    const res = await fetch(`${BaseUrl}/api/admin/recipes`,{
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    })
     return res.json()
 }
 
@@ -60,19 +64,25 @@ export const getFeature = async () => {
     return res.json()
 }
 
-export const deleteReportButton = async(id) => {
+export const deleteReportButton = async(id,token) => {
     console.log(id)
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/recipes/report/list/delete/${id}`,{
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+            authorization: `Bearer ${token?.token}`
+        }
     })
     const data = await res.json()
     return data
 }
 
-export const deleteReportRecipeButton = async(id) => {
+export const deleteReportRecipeButton = async(id,token) => {
     console.log(id)
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/recipes/report/recipe/list/delete/${id}`,{
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+            authorization: `Bearer ${token?.token}`
+        }
     })
     const data = await res.json()
     return data

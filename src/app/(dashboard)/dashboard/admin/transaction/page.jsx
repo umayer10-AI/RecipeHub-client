@@ -1,9 +1,12 @@
 import { getAllPayments } from "@/lib/api/customer/payment";
+import { getServerToken } from "@/lib/token";
 import React from "react";
 
 const Page = async () => {
 
-  const data = await getAllPayments()
+  const token = await getServerToken()
+
+  const data = await getAllPayments(token)
   console.log(data)
 
   return (
