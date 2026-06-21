@@ -14,12 +14,14 @@ import { redirect, usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { authClient } from "@/lib/auth-client";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { useTheme } from "next-themes";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
   const dropdownRef = useRef(null);
+  const { theme, setTheme } = useTheme();
 
   const { data: session } = authClient.useSession();
   const user = session?.user;
@@ -41,13 +43,18 @@ const Navbar = () => {
     };
   }, []);
 
+  const a = () => {
+    setDarkMode(!darkMode)
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
+
   const handleSignout = async () => {
     await authClient.signOut();
     redirect("/");
   };
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#0B1120]/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#0B1120] dark:bg-[#0B1120]/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[80%] items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
@@ -95,7 +102,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           {/* Theme Toggle */}
           <button
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={a}
             className="flex h-8 w-8 items-center justify-center cursor-pointer rounded-full bg-slate-800 text-cyan-400 hover:bg-gray-800 transition"
           >
             {darkMode ? <Sun size={18} /> : <Moon size={20} />}

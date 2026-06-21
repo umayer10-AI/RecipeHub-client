@@ -15,7 +15,7 @@ const Dynamic1 = async () => {
   return (
     <section className="max-w-[80%] mx-auto px-4 py-20">
       <div className="mb-10 text-center">
-        <h2 className="text-4xl font-bold text-white">
+        <h2 className="text-4xl font-bold dark:text-white">
           Featured Recipes ✨
         </h2>
         <p className="mt-3 text-slate-400">
@@ -24,10 +24,10 @@ const Dynamic1 = async () => {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-        {featuredRecipes?.map((recipe) => (
+        {featuredRecipes?.slice(0,6).map((recipe) => (
           <div
             key={recipe._id}
-            className="group overflow-hidden rounded-2xl border border-yellow-500/20 bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-500/50"
+            className="group overflow-hidden rounded-2xl border border-cyan-500/20 dark:bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500 shadow-xl hover:shadow-cyan-500/20"
           >
             {/* Image */}
             <div className="relative overflow-hidden">
@@ -50,33 +50,33 @@ const Dynamic1 = async () => {
               </h3>
 
               <div className="space-y-1">
-                <div className="flex items-center gap-3 text-slate-300">
+                <div className="flex items-center gap-3 text-gray-500 dark:text-slate-300">
                   <UtensilsCrossed
                     size={18}
                     className="text-orange-400"
                   />
                   <span>
-                    <span className="font-medium text-white">
+                    <span className="font-medium text-black dark:text-white">
                       Category:
                     </span>{" "}
                     {recipe.category}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3 text-slate-300">
+                <div className="flex items-center gap-3 text-gray-500 dark:text-slate-300">
                   <Globe size={18} className="text-cyan-400" />
                   <span>
-                    <span className="font-medium text-white">
+                    <span className="font-medium text-black dark:text-white">
                       Cuisine:
                     </span>{" "}
                     {recipe.cuisineType}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3 text-slate-300">
+                <div className="flex items-center gap-3 text-gray-500 dark:text-slate-300">
                   <Clock size={18} className="text-green-400" />
                   <span>
-                    <span className="font-medium text-white">
+                    <span className="font-medium text-black dark:text-white">
                       Preparation:
                     </span>{" "}
                     {recipe.preparationTime} mins
@@ -87,14 +87,14 @@ const Dynamic1 = async () => {
               <div className="mt-3 border-t border-slate-800 pt-4 flex items-center justify-between">
                 <span className="text-sm text-slate-400">
                   By{" "}
-                  <span className="text-white font-medium">
+                  <span className="text-black dark:text-white font-medium">
                     {recipe.userName}
                   </span>
                 </span>
 
                 <Link
                   href={`/browse/${recipe.recipeId}`}
-                  className="flex items-center gap-2 rounded-lg bg-linear-to-r from-cyan-500 to-blue-700 px-4 py-2 text-sm font-medium transition hover:bg-yellow-400"
+                  className="flex items-center gap-2 rounded-lg text-white bg-linear-to-r from-cyan-500 to-blue-700 px-4 py-2 text-sm font-medium transition hover:bg-yellow-400"
                 >
                 
                   <Eye size={16} />
