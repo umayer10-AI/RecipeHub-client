@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Section4 = () => {
   return (
-    <section className="relative bg-[#0B1120] text-white py-30 overflow-hidden">
+    <section className="relative bg-[#0B1120] text-white pt-30 pb-40 overflow-hidden">
       <div className="absolute -bottom-32 right-0 h-96 w-96 bg-blue-600 opacity-20 blur-3xl rounded-full"></div>
 
       <div className="max-w-[80%] mx-auto px-4 text-center relative z-10">

@@ -8,7 +8,7 @@ const Banner = () => {
       <div className="mx-auto flex min-h-[80vh] max-w-[80%] items-center px-4">
         
         {/* Left Content */}
-        <div className="max-w-2xl">
+        <div className="flex-1 max-w-2xl">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
             Discover & Share <span className="text-sky-400">Amazing Recipes</span>
           </h1>
@@ -18,10 +18,17 @@ const Banner = () => {
             Cook smarter, faster, and healthier with RecipeHub.
           </p>
 
-          <div className="mt-8 flex gap-4">
-            <Link
+          <div className="mt-8 flex items-center gap-4">
+            {/* <Link
               href="/browse"
-              className="rounded-xl bg-gradient-to-r from-cyan-500 to-blue-700 px-6 py-3 font-medium hover:opacity-90 transition"
+              className="rounded-xl bg-linear-to-r cursor-pointer from-cyan-500 to-blue-700 px-6 py-3 font-medium hover:opacity-90 transition"
+            >
+              Explore Recipes
+            </Link> */}
+
+            <Link
+              href={"/browse"}
+              className="rounded-xl bg-gradient-to-r cursor-pointer from-cyan-500 to-blue-700 px-6 py-3 font-medium hover:opacity-90 transition"
             >
               Explore Recipes
             </Link>

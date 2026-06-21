@@ -27,7 +27,7 @@ const page = () => {
       {/* Features */}
       <section className="max-w-[80%] mx-auto py-20">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div className="bg-slate-900 border border-slate-800 hover:border-cyan-500 hover:-translate-y-2 transition-all duration-300 rounded-2xl p-6">
             <BookOpen className="w-10 h-10 text-cyan-400 mb-4" />
             <h3 className="text-xl font-semibold mb-2">
               Thousands of Recipes
@@ -37,7 +37,7 @@ const page = () => {
             </p>
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div className="bg-slate-900 border border-slate-800 hover:border-cyan-500 hover:-translate-y-2 transition-all duration-300 rounded-2xl p-6">
             <ChefHat className="w-10 h-10 text-cyan-400 mb-4" />
             <h3 className="text-xl font-semibold mb-2">Expert Cooking Tips</h3>
             <p className="text-slate-400">
@@ -45,7 +45,7 @@ const page = () => {
             </p>
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div className="bg-slate-900 border border-slate-800 hover:border-cyan-500 hover:-translate-y-2 transition-all duration-300 rounded-2xl p-6">
             <Users className="w-10 h-10 text-cyan-400 mb-4" />
             <h3 className="text-xl font-semibold mb-2">Community Driven</h3>
             <p className="text-slate-400">
@@ -53,7 +53,7 @@ const page = () => {
             </p>
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div className="bg-slate-900 border border-slate-800 hover:border-cyan-500 hover:-translate-y-2 transition-all duration-300 rounded-2xl p-6">
             <Sparkles className="w-10 h-10 text-cyan-400 mb-4" />
             <h3 className="text-xl font-semibold mb-2">Easy Discovery</h3>
             <p className="text-slate-400">
@@ -81,7 +81,7 @@ const page = () => {
             </p>
           </div>
 
-          <div className="bg-linear-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/20 rounded-3xl p-10">
+          <div className="bg-linear-to-br from-cyan-500/20 hover:from-blue-700 hover:to-cyan-600 to-blue-500/20 border border-cyan-500/20 rounded-3xl p-10 transition duration-300">
             <h3 className="text-3xl font-bold mb-6">Why Choose RecipeHub?</h3>
 
             <ul className="space-y-4 text-slate-300">

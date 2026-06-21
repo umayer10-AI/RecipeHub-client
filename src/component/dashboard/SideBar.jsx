@@ -115,14 +115,17 @@ const Sidebar = () => {
             }
             className="h-20 w-20 rounded-full object-cover border-2 border-slate-700"
           /> : 
-          <h2 className="text-2xl font-bold bg-linear-to-r from-cyan-400 to-blue-500 w-fit bg-clip-text text-transparent">Admin Panel</h2>
+          <h2 className="text-3xl font-bold bg-linear-to-r from-cyan-400 to-blue-500 w-fit bg-clip-text text-transparent">Admin Panel</h2>
           }
 
           {/* Name + Badge */}
           <div className="mt-3 flex items-center gap-2">
-            <h2 className="text-lg font-semibold">
+            
+            {
+              user?.role==='customer' && <h2 className="text-lg font-semibold">
               {user?.name || "John Doe"}
             </h2>
+            }
 
             {
               user?.role==='customer' && <div>

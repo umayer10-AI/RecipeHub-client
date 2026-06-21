@@ -8,7 +8,6 @@ const page = async () => {
     const recipeCnt = await countRecepies()
     const premiumCnt = await countPremium()
     const list = await reportsListings()
-    // console.log(recipeCnt)
 
     return (
         <div className='max-w-[90%] mx-auto mt-10'>

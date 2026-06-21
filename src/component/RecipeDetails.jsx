@@ -49,17 +49,9 @@ const RecipeDetails = ({ recipe,isSaved }) => {
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-2">
-            {/* <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-rose-500 hover:bg-rose-600 transition text-sm font-medium">
-              <Heart size={16} />
-              Like ({recipe.like})
-            </button> */}
+
 
             <LikeGrow recipe={recipe}></LikeGrow>
-
-            {/* <button className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 transition text-sm font-medium">
-              <Bookmark size={16} />
-              Save
-            </button> */}
 
             <SaveRecipe recipe={recipe} isSaved={isSaved}></SaveRecipe>
 
@@ -69,7 +61,7 @@ const RecipeDetails = ({ recipe,isSaved }) => {
               <input type="hidden" name="price" value={4.99} />
               <input type="hidden" name="recipeName" value={recipe.recipeName} />
 
-              <button type="submit" className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 transition text-sm font-medium">
+              <button type="submit" className="flex items-center cursor-pointer gap-1.5 px-3 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 transition text-sm font-medium">
                 <ShoppingCart size={16} />
                 Purchase
               </button>

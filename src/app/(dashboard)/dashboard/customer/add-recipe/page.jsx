@@ -12,7 +12,6 @@ const AddRecipePage = () => {
 
   const { data: session } = authClient.useSession();
   const user = session?.user;
-  // console.log(user)
 
   useEffect(() => {
   const fetchData = async () => {
@@ -51,6 +50,9 @@ const AddRecipePage = () => {
     try {
       setLoading(true);
 
+      const token = await authClient.token()
+      const t = token?.data
+
       const formData = new FormData(e.target);
       const recipeData = Object.fromEntries(formData.entries());
 
@@ -62,7 +64,7 @@ const AddRecipePage = () => {
       recipeData.like = Number(0);
       recipeData.userName = user?.name;
 
-      const result = await addRecipes(recipeData);
+      const result = await addRecipes(recipeData,t);
 
       if (result.insertedId) {
         toast.success("Recipe added successfully!");

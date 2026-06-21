@@ -7,23 +7,28 @@ import {
   CreditCard,
   UserCog,
 } from "lucide-react";
+import Link from "next/link";
 
 
 const actions = [
   {
     name: "Manage Users",
+    href: "/dashboard/admin/manage-user",
     icon: UserCog,
   },
   {
     name: "Manage Recipes",
+    href: "/dashboard/admin/manage-recipe",
     icon: BookOpen,
   },
   {
     name: "Review Reports",
+    href: "/dashboard/admin/reports",
     icon: AlertTriangle,
   },
   {
     name: "Transactions",
+    href: "/dashboard/admin/transaction",
     icon: CreditCard,
   },
 ];
@@ -109,13 +114,14 @@ const Overview = ({userCnt,recipeCnt,premiumCnt,list}) => {
             const Icon = action.icon;
 
             return (
-              <button
+              <Link
                 key={action.name}
-                className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800 px-5 py-3 text-sm font-medium text-slate-300 transition-all hover:bg-slate-700 hover:text-white"
+                href={action.href}
+                className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800 px-5 py-3 text-sm font-medium text-slate-300 transition-all hover:bg-slate-100 hover:text-black"
               >
                 <Icon size={18} />
                 {action.name}
-              </button>
+              </Link>
             );
           })}
         </div>

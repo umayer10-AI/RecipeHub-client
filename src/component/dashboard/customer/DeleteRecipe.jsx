@@ -1,5 +1,6 @@
 "use client";
 import { deleteRecipeButton } from "@/lib/api/customer/recipe";
+import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button } from "@heroui/react";
 import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
@@ -7,8 +8,11 @@ import toast from "react-hot-toast";
 const DeleteRecipe = ({recipe}) => {
 
     const deleteButton = async() => {
-        // console.log(recipe)
-        const data = await deleteRecipeButton(recipe._id)
+
+        const token = await authClient.token()
+        const t = token?.data
+        
+        const data = await deleteRecipeButton(recipe._id, t)
         if(data.deletedCount > 0){
             toast.error('Deleted')
             redirect('/dashboard/customer/my-recipes')
