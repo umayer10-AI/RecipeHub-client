@@ -43,8 +43,14 @@ export const singleRecipes = async(id) => {
     return getdata(`/api/recipes/single/${id}`)
 }
 
-export const singleSavedRecipes = async(id) => {
-    return getdata(`/api/recipes/save/data/${id}`)
+export const singleSavedRecipes = async(id,token) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/recipes/save/data/${id}`,{
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    })
+    return res.json()
+    // return getdata(`/api/recipes/save/data/${id}`)
 }
 
 export const singleCountRecipes = async(v,id) => {
