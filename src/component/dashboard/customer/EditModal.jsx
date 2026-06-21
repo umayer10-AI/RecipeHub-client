@@ -1,6 +1,7 @@
 "use client";
 
 import { updateRecipe } from "@/lib/api/customer/recipe";
+import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -33,8 +34,12 @@ export default function EditRecipe({ recipe }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const token = await authClient.token()
+    const t = token?.data
+    // console.log(t)
+
     console.log(formData);
-    const result = await updateRecipe(formData,recipe._id)
+    const result = await updateRecipe(formData,recipe._id,t)
     // console.log(result)
     if(result.modifiedCount > 0){
         toast.success('Updated Data')

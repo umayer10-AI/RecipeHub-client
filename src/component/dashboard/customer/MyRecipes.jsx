@@ -82,14 +82,8 @@ export default function MyRecipes({ recipes }) {
                     View
                   </Link>
 
-                  {/* <button className="rounded-lg bg-yellow-500 px-3 py-2 text-sm font-semibold text-black transition hover:bg-yellow-600">
-                    Edit
-                  </button> */}
                   <EditRecipe recipe={recipe}></EditRecipe>
 
-                  {/* <button className="rounded-lg bg-red-500 px-3 py-2 text-sm text-white transition hover:bg-red-600">
-                    Delete
-                  </button> */}
                   <DeleteRecipe recipe={recipe}></DeleteRecipe>
                 </div>
               </td>

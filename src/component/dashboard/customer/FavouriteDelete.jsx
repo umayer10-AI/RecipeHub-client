@@ -1,5 +1,6 @@
 'use client'
 import { deleteSaveButton } from '@/lib/api/customer/recipe';
+import { authClient } from '@/lib/auth-client';
 import { redirect } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
@@ -7,7 +8,9 @@ import toast from 'react-hot-toast';
 const FavouriteDelete = ({filter}) => {
 
     const a = async() => {
-        const data = await deleteSaveButton(filter)
+        const token = await authClient.token()
+        const t = token?.data
+        const data = await deleteSaveButton(filter, t)
         console.log(data)
         if(data.deletedCount > 0){
             toast.error('Unsave')

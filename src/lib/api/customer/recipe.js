@@ -65,8 +65,8 @@ export const addRecipes = async(v) => {
     return mutation(v,`/api/recipes`,`POST`)
 }
 
-export const updateRecipe = async(v,id) => {
-    return mutation(v,`/api/recipes/edit/${id}`,'PATCH')
+export const updateRecipe = async(v,id,token) => {
+    return mutation(v,`/api/recipes/edit/${id}`,'PATCH', token)
 }
 
 export const saveRecipeData = async(v) => {
@@ -81,9 +81,12 @@ export const deleteRecipeButton = async(id) => {
     return data
 }
 
-export const deleteSaveButton = async(id) => {
+export const deleteSaveButton = async(id, token) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/recipes/save/delete/${id}`,{
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+            authorization: `Bearer ${token?.token}`
+        }
     })
     const data = await res.json()
     return data

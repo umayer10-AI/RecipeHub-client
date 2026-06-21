@@ -7,7 +7,6 @@ import React from 'react';
 const page = async () => {
 
     const token = await getServerToken()
-    console.log(token)
 
     const user = await serverSession()
     const save = await singleSavedRecipes(user?.id, token)

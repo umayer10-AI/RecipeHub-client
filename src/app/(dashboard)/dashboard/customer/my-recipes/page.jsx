@@ -7,7 +7,7 @@ const page = async () => {
 
     const user = await serverSession()
     const data = await myRecipes(user?.id)
-    console.log(data)
+    // console.log(data)
 
     return (
         <div className='max-w-[90%] mx-auto'>

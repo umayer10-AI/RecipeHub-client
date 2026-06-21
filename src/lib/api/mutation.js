@@ -5,12 +5,13 @@ export const getdata = async (path) => {
     return res.json()
 }
 
-export const mutation = async (v, path, method='POST') => {
+export const mutation = async (v, path, method='POST', token) => {
     
     const res = await fetch(`${BaseUrl}${path}`,{
         method: method,
         headers: {
-            'content-type' : 'application/json'
+            'content-type' : 'application/json',
+            authorization: `Bearer ${token?.token}`
         },
         body: JSON.stringify(v)
     })

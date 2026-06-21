@@ -45,11 +45,6 @@ const FavouriteCards = ({recipes}) => {
             View
           </Link>
 
-          {/* <button
-            className="rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-600"
-          >
-            Delete
-          </button> */}
           <FavouriteDelete filter={recipe?._id}></FavouriteDelete>
         </div>
       </div>
