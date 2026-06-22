@@ -5,8 +5,6 @@ import AdminFeature from "./AdminFeature";
 
 const ManageRecipe = ({recipes}) => {
 
-  // console.log(recipes)
-
   return (
     <div className="space-y-6">
       <div>

@@ -13,8 +13,6 @@ const page = async ({params}) => {
     const data = await singleRecipes(id)
     const save = await singleSavedRecipes(user?.id, token)
     const isSaved = save.find(item => item.saveId === data._id)
-    // console.log(data)
-    console.log(save)
 
     return (
         <div>

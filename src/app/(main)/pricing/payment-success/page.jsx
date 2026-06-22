@@ -25,8 +25,7 @@ export default async function Success({ searchParams }) {
   if(status === 'open') {
     return redirect('/')
   }
-  // console.log('')
-
+  
   if(status === 'complete'){
 
     const result = await payments({ ...metadata, session_id })
