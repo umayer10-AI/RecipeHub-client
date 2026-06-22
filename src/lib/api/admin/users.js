@@ -5,7 +5,8 @@ const BaseUrl = process.env.NEXT_PUBLIC_SERVER_URL
 export const countUsers = async (token) => {
     const res = await fetch(`${BaseUrl}/api/admin/users`,{
         headers: {
-            authorization: `Bearer ${token}`
+            authorization: `Bearer ${token}`,
+            cache: 'no-store'
         }
     })
     return res.json()
@@ -14,19 +15,24 @@ export const countUsers = async (token) => {
 export const countRecepies = async (token) => {
     const res = await fetch(`${BaseUrl}/api/admin/recipes`,{
         headers: {
-            authorization: `Bearer ${token}`
+            authorization: `Bearer ${token}`,
+            cache: 'no-store'
         }
     })
     return res.json()
 }
 
 export const countPremium = async () => {
-    const res = await fetch(`${BaseUrl}/api/admin/premium`)
+    const res = await fetch(`${BaseUrl}/api/admin/premium`,{
+        cache: 'no-store'
+    })
     return res.json()
 }
 
 export const reportsListings = async () => {
-    const res = await fetch(`${BaseUrl}/api/recipes/report/list`)
+    const res = await fetch(`${BaseUrl}/api/recipes/report/list`,{
+        cache: 'no-store'
+    })
     return res.json()
 }
 
@@ -46,7 +52,8 @@ export const updatePremium = async (id,token) => {
             {
                 method: "PATCH",
                 headers: {
-                    "Authorization": `Bearer ${token?.token}`
+                    authorization: `Bearer ${token?.token}`,
+                    cache: 'no-store'
                 }
             }
             );
