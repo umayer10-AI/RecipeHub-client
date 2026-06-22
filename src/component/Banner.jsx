@@ -28,16 +28,17 @@ const Banner = () => {
           <div className="relative z-20 mt-8 flex items-center gap-4">
             <Link
               href="/browse"
-              className="rounded-xl bg-gradient-to-r from-cyan-500 to-blue-700 px-6 py-3 font-medium text-white transition hover:opacity-90"
+              className="rounded-xl bg-linear-to-r from-cyan-500 to-blue-700 px-6 py-3 font-medium text-white transition hover:opacity-90"
             >
               Explore Recipes
             </Link>
 
-            <button
+            <Link
+              href="/about"
               className="rounded-xl border border-gray-300 px-6 py-3 font-medium transition hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-800"
             >
               See Pricing
-            </button>
+            </Link>
           </div>
 
           {/* Stats */}
