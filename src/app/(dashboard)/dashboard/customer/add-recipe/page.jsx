@@ -1,7 +1,8 @@
 "use client";
 import { addRecipes, myRecipes } from "@/lib/api/customer/recipe";
 import { authClient } from "@/lib/auth-client";
-import { uploadToCloudinary, uploadToImgbb } from "@/lib/Imgbb";
+import { uploadToCloudinary } from "@/lib/Imgbb";
+import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -34,7 +35,6 @@ const AddRecipePage = () => {
 }, [user?.id]);
 
   const userRecipeCount = recipes.length;
-  // console.log(recipes.length)
 
   const isPro = user?.plan === "pro";
   const isBlocked = !isPro && userRecipeCount >= 2;

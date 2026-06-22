@@ -26,7 +26,6 @@ const Dashboard = async () => {
     const count = await myRecipes(user?.id)
     const saveCnt = await singleSavedRecipes(user?.id,token)
     const likeCnt = await myRecipesCount(user?.id)
-    console.log(user)
 
   return (
     <div className="min-h-screen p-8 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
