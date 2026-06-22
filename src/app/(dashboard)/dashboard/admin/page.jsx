@@ -1,16 +1,17 @@
 import Overview from '@/component/dashboard/admin/Overview';
 import { countPremium, countRecepies, countUsers, reportsListings } from '@/lib/api/admin/users';
 import { serverSession } from '@/lib/session';
+import { getServerToken } from '@/lib/token';
 import React from 'react';
 
 const page = async () => {
 
-    const userCnt = await countUsers()
-    const recipeCnt = await countRecepies()
+    const token = await getServerToken()
+    const userCnt = await countUsers(token)
+    const recipeCnt = await countRecepies(token)
     const premiumCnt = await countPremium()
     const list = await reportsListings()
     const user = await serverSession()
-    console.log(user)
 
     return (
         <div className='max-w-[90%] mx-auto mt-10'>

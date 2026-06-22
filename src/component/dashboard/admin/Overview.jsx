@@ -47,7 +47,6 @@ const Overview = ({userCnt,recipeCnt,premiumCnt,list}) => {
       </div>
 
       {/* Stats Cards */}
-      {/* Stats Cards */}
 <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
 
   {/* Total Users */}
@@ -57,7 +56,7 @@ const Overview = ({userCnt,recipeCnt,premiumCnt,list}) => {
     </div>
 
     <h2 className="text-4xl font-bold mt-5 text-blue-400">
-      {userCnt.length}
+      {userCnt.length || 0}
     </h2>
 
     <p className="text-slate-400 mt-2">Total Users</p>
