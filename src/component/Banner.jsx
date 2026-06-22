@@ -33,12 +33,11 @@ const Banner = () => {
               Explore Recipes
             </Link>
 
-            <Link
-              href="/pricing"
+            <button
               className="rounded-xl border border-gray-300 px-6 py-3 font-medium transition hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-800"
             >
               See Pricing
-            </Link>
+            </button>
           </div>
 
           {/* Stats */}

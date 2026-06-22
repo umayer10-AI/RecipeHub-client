@@ -11,7 +11,8 @@ export const mutation = async (v, path, method='POST', token) => {
         method: method,
         headers: {
             'content-type' : 'application/json',
-            authorization: `Bearer ${token?.token}`
+            authorization: `Bearer ${token?.token}`,
+            cache: 'no-store'
         },
         body: JSON.stringify(v)
     })
