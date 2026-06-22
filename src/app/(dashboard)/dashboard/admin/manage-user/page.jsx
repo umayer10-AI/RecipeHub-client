@@ -6,7 +6,7 @@ import React from 'react';
 const page = async () => {
 
     const token = await getServerToken()
-    console.log(token)
+    // console.log(token)
     const userCnt = await countUsers(token)
 
     return (

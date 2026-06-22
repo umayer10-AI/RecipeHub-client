@@ -8,7 +8,7 @@ export default function RecipeCards({recipes}) {
       {recipes.map((recipe, index) => (
         <div
           key={index}
-          className="group overflow-hidden rounded-2xl border border-slate-800 dark:bg-slate-900 shadow-lg hover:border-cyan-500/50 hover:shadow-orange-500/10 transition-all duration-300"
+          className="group overflow-hidden rounded-2xl border dark:bg-slate-900 shadow-lg hover:border-cyan-500/50 hover:shadow-cyan-500 transition-all duration-300"
         >
           {/* Image */}
           <div className="relative overflow-hidden h-50">
