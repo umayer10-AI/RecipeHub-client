@@ -69,7 +69,7 @@ const Navbar = () => {
             className={`rounded-xl px-4 py-2 ${
               pathname === "/"
                 ? "bg-linear-to-r from-cyan-500 to-blue-700 text-white"
-                : "text-gray-300 hover:text-sky-400"
+                : "text-white hover:text-sky-400"
             }`}
           >
             Home
@@ -80,7 +80,7 @@ const Navbar = () => {
             className={`rounded-xl px-4 py-2 ${
               pathname === "/browse"
                 ? "bg-linear-to-r from-cyan-500 to-blue-700 text-white"
-                : "text-gray-300 hover:text-sky-400"
+                : "text-white hover:text-sky-400"
             }`}
           >
             Browse
@@ -90,8 +90,8 @@ const Navbar = () => {
             href="/about"
             className={`rounded-xl px-4 py-2 ${
               pathname === "/about"
-                ? "bg-gradient-to-r from-cyan-500 to-blue-700 text-white"
-                : "text-gray-300 hover:text-sky-400"
+                ? "bg-linear-to-r from-cyan-500 to-blue-700 text-white"
+                : "text-white hover:text-sky-400"
             }`}
           >
             About
