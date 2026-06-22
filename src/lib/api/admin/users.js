@@ -69,7 +69,7 @@ export const getFeature = async () => {
 }
 
 export const deleteReportButton = async(id,token) => {
-    
+
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/recipes/report/list/delete/${id}`,{
         method: "DELETE",
         headers: {
@@ -82,7 +82,6 @@ export const deleteReportButton = async(id,token) => {
 }
 
 export const deleteReportRecipeButton = async(id,token) => {
-    console.log(id)
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/recipes/report/recipe/list/delete/${id}`,{
         method: "DELETE",
         headers: {
