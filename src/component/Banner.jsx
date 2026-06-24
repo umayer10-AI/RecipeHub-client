@@ -1,9 +1,14 @@
 "use client";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Banner = () => {
   return (
-    <section className="relative overflow-hidden bg-white text-gray-900 dark:bg-[#0B1120] dark:text-white">
+    <motion.section 
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    className="relative overflow-hidden bg-white text-gray-900 dark:bg-[#0B1120] dark:text-white">
 
       <div className="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-sky-400/20 blur-3xl dark:bg-sky-500/20"></div>
 
@@ -74,7 +79,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

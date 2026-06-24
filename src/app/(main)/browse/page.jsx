@@ -1,4 +1,5 @@
 import Browse from '@/component/Browse';
+import Reveal from '@/component/Reveal';
 import React from 'react';
 
 const page = async ({searchParams}) => {
@@ -10,7 +11,9 @@ const page = async ({searchParams}) => {
 
     return (
         <div>
-            <Browse search={search} category={category} page={currentPage}></Browse>
+            <Reveal>
+                <Browse search={search} category={category} page={currentPage}></Browse>
+            </Reveal>
         </div>
     );
 };

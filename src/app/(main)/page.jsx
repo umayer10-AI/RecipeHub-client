@@ -1,21 +1,35 @@
-import Banner from '@/component/Banner';
-import Dynamic1 from '@/component/Dynamic1';
-import Section1 from '@/component/Section1';
-import Section2 from '@/component/Section2';
-import Section3 from '@/component/Section3';
-import Section4 from '@/component/Section4';
-import TopLikedComponent from '@/component/TopLikedComponent';
-import React from 'react';
+import Banner from "@/component/Banner";
+import Dynamic1 from "@/component/Dynamic1";
+import Reveal from "@/component/Reveal";
+import Section1 from "@/component/Section1";
+import Section2 from "@/component/Section2";
+import Section4 from "@/component/Section4";
+import TopLikedComponent from "@/component/TopLikedComponent";
 
 const page = () => {
   return (
     <div>
-      <Banner></Banner>
-      <Dynamic1></Dynamic1>
-      <TopLikedComponent></TopLikedComponent>
-      <Section1></Section1>
-      <Section2></Section2>
-      <Section4></Section4>
+      <Banner />
+
+      <Reveal>
+        <Dynamic1 />
+      </Reveal>
+
+      <Reveal>
+        <TopLikedComponent />
+      </Reveal>
+
+      <Reveal>
+        <Section1 />
+      </Reveal>
+
+      <Reveal>
+        <Section2 />
+      </Reveal>
+
+      <Reveal>
+        <Section4 />
+      </Reveal>
     </div>
   );
 };
