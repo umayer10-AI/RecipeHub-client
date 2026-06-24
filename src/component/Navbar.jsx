@@ -157,7 +157,9 @@ const Navbar = () => {
                   </Link>
 
                   <Link
-                    href="/dashboard/customer/profile"
+                    href={user?.role==='customer' ? 
+                      "/dashboard/customer/profile" : 
+                      "/dashboard/admin/profile"}
                     className="flex items-center gap-2 px-4 py-3 text-white hover:bg-gray-800"
                   >
                     <User size={18} />
