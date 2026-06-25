@@ -8,11 +8,13 @@ const page = async ({params}) => {
 
     const user = await serverSession()
     const token = await getServerToken()
+    // console.log(token)
 
     const {id} = await params
     const data = await singleRecipes(id)
     const save = await singleSavedRecipes(user?.id, token)
-    const isSaved = save.find(item => item.saveId === data._id)
+    const isSaved = save?.find(item => item.saveId === data._id)
+    console.log(save)
 
     return (
         <div>
